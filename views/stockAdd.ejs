@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="css/stockAdd.css">
+
+<%- include ('public/header.ejs')%>
+
+
+<div class="container">
+  <h1>Add product item</h1>
+  <form action="/doneStockAdd" enctype="multipart/form-data" method="POST">
+    <!-- !!!@@!@! Have to add this line to the form: enctype="multipart/form-data"  -->
+    <div class="row">
+      <div class="col-25">
+        <label for="name">English Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="English Name">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="name_CN">Chinese Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name_CN" name="name_CN" placeholder="Chinese Name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="price">Price</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="price" name="price" placeholder="Price">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="id">Product ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="id" name="id" placeholder="id">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="stock">Stock</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="stock" name="stock" placeholder="Stock">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="onSale">On Sale</label>
+      </div>
+      <div class="col-75">
+        <select id="onSale" name="onSale">
+          <option value="true">...Please select</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="category">Category</label>
+      </div>
+      <div class="col-75">
+        <select id="category" name="category">
+          <option value="true">...Please select</option>
+          <option value="sweetSpicy">Sweet Spicy</option>
+          <option value="spicy">Spicy</option>
+          <option value="seafood">Seafood</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="picture">Picture</label>
+      </div>
+      <div class="col-75">
+          <label for="picture">Please upload picture</label>
+          <input type="file" id="picture" name="picture"><br>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="ingredient">Ingredients</label>
+      </div>
+      <div class="col-75">
+        <textarea id="ingredient" name="ingredient" placeholder="Please type in ingredients" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+
+<%- include ('public/leftSideNav.ejs')%>

@@ -1,0 +1,32 @@
+
+
+* {box-sizing: border-box;}
+
+.user-list-container {
+	padding: 15px;
+	/* padding-left: 15vw; */
+  overflow: hidden;
+  /* background-color: #e9e9e9; */
+}
+
+.user-list-container .user-table {
+	
+	background-color: rgb(227, 227, 227);
+	padding-right: 15px;
+	width: 100%;
+	text-align: center;
+	position: relative;
+}
+
+.button {
+	background-color: #9a9a9a;
+	border-radius: 10px;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+  }
+  .button-red {background-color: #f44336;} /* Red */ 

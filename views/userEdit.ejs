@@ -1,0 +1,47 @@
+
+<div class="container">
+    <link rel="stylesheet" href="css/userEdit.css">
+    <h1>Edit user</h1>
+    <form action="/doneEditUser" enctype="multipart/form-data" method="POST">
+        <!-- !!!@@!@! Have to add this line to the form: enctype="multipart/form-data"  -->
+        <input type="hidden" name="_id" value="<%=user._id%>"/>
+        <div class="row">
+          <div class="col-25">
+            <label for="staffnum">Staff Number</label>
+          </div>
+          <div class="col-75">
+            <div class="non-editable-content"><%=user.id%></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="username">User Name</label>
+          </div>
+          <div class="col-75">
+            <div class="non-editable-content"><%=user.username%></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="password">Password</label>
+          </div>
+          <div class="col-75">
+            <input type="password" id="password" name="password" placeholder="new password">
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-25">
+						<label for="auth">Authorization level</label>
+					</div>
+					<div class="col-75">
+						<select id="auth" name="auth">
+							<option value="clerk">Clerk</option>
+              <option value="supervisor">Supervisor</option>
+						</select>
+					</div>
+				</div>
+        <div class="row">
+					<input type="submit" value="Save">
+        </div>
+      </form>
+</div>

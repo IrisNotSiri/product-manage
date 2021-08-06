@@ -1,0 +1,60 @@
+<%- include ('public/header.ejs')%>
+<%- include ('public/leftSideNav.ejs')%>
+<link rel="stylesheet" href="css/productList.css">
+<div class="product-list-container">
+    <div class="search-container">
+        <div>Product Search</div>
+        <form action="/products">
+            <input type="text" placeholder="search here..." name="search">
+            <button type="submit" class="button">search</button>
+        </form>
+    </div>
+    <table class="product-table">
+        <tr>
+            <th>Product ID</th>
+            <th>Chinese Name</th>
+            <th>English Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Category</th>
+            <th>On sale</th>
+            
+        </tr>
+        <%for (let i=0; i<product.length; i++){%>
+            <tr>
+                <td>
+                    <%=product[i].id%>
+                </td>
+                <td>
+                    <%=product[i].name_CN%>
+                </td>
+                <td>
+                    <%=product[i].name%>
+                </td>
+                <td>
+                    <%=product[i].price%>
+                </td>
+                <td>
+                    <%=product[i].stock%>
+                </td>
+                <td>
+                    <%=product[i].category%>
+                </td>
+                <%if (product[i].onSale=='true'){%>
+                <td>Yes</td>
+                <%} else {%>
+                <td>No</td>
+                <%}%>
+                
+                <td>
+                    <img width="100px" src="<%=product[i].picture%>" alt="not found">
+                </td>
+                <td>
+                    <a href="/stockedit?id=<%=product[i]._id%>" class="button">Edit</a>
+                    <a href="/stockdelete?id=<%=product[i]._id%>" class="button button-red">Delete</a>
+                </td>
+            </tr>
+            <%}%>
+    </table>
+</div>
+

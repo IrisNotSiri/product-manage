@@ -1,0 +1,45 @@
+
+<div class="container">
+    <link rel="stylesheet" href="css/userAdd.css">
+    <h1>Create new user</h1>
+    <form action="/doneAddUser" enctype="multipart/form-data" method="POST">
+        <!-- !!!@@!@! Have to add this line to the form: enctype="multipart/form-data"  -->
+        <div class="row">
+          <div class="col-25">
+            <label for="staffnum">Staff Number</label>
+          </div>
+          <div class="col-75">
+            <input type="number" id="staffnum" name="staffnum">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="username">User Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="username" name="username">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="password">Password</label>
+          </div>
+          <div class="col-75">
+            <input type="password" id="password" name="password">
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-25">
+						<label for="auth">Authorization level</label>
+					</div>
+					<div class="col-75">
+						<select id="auth" name="auth">
+							<option value="clerk">Clerk</option>
+						</select>
+					</div>
+				</div>
+        <div class="row">
+					<input type="submit" value="Submit">
+        </div>
+      </form>
+</div>
