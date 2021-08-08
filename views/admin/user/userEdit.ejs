@@ -1,8 +1,8 @@
 
 <div class="container">
-    <link rel="stylesheet" href="css/userEdit.css">
+    <link rel="stylesheet" href="/css/userEdit.css">
     <h1>Edit user</h1>
-    <form action="/doneEditUser" enctype="multipart/form-data" method="POST">
+    <form action="/admin/users/done-edit-user" enctype="multipart/form-data" method="POST">
         <!-- !!!@@!@! Have to add this line to the form: enctype="multipart/form-data"  -->
         <input type="hidden" name="_id" value="<%=user._id%>"/>
         <div class="row">
@@ -33,10 +33,11 @@
 					<div class="col-25">
 						<label for="auth">Authorization level</label>
 					</div>
-					<div class="col-75">
+					<div class="col-75">  
 						<select id="auth" name="auth">
-							<option value="clerk">Clerk</option>
-              <option value="supervisor">Supervisor</option>
+              <option selected hidden value="<%=user.auth%>"><%=user.auth%></option>
+              <option value="Supervisor">Supervisor</option>
+              <option value="Clerk">Clerk</option>
 						</select>
 					</div>
 				</div>

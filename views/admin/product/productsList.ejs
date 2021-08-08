@@ -1,6 +1,6 @@
-<%- include ('public/header.ejs')%>
-<%- include ('public/leftSideNav.ejs')%>
-<link rel="stylesheet" href="css/productList.css">
+<%- include ('../public/header.ejs')%>
+<%- include ('../public/leftSideNav.ejs')%>
+<link rel="stylesheet" href="/css/productList.css">
 <div class="product-list-container">
     <div class="search-container">
         <div>Product Search</div>
@@ -18,6 +18,8 @@
             <th>Stock</th>
             <th>Category</th>
             <th>On sale</th>
+            <th>Icon</th>
+            <th>Settings</th>
             
         </tr>
         <%for (let i=0; i<product.length; i++){%>
@@ -47,11 +49,11 @@
                 <%}%>
                 
                 <td>
-                    <img width="100px" src="<%=product[i].picture%>" alt="not found">
+                    <img width="100px" src="/<%=product[i].picture%>" alt="not found">
                 </td>
                 <td>
-                    <a href="/stockedit?id=<%=product[i]._id%>" class="button">Edit</a>
-                    <a href="/stockdelete?id=<%=product[i]._id%>" class="button button-red">Delete</a>
+                    <a href="/admin/products/product-edit?id=<%=product[i]._id%>" class="button">Edit</a>
+                    <a href="/admin/products/product-delete?id=<%=product[i]._id%>" class="button button-red">Delete</a>
                 </td>
             </tr>
             <%}%>

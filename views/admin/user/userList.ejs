@@ -1,9 +1,7 @@
-
-<%- include ('public/header.ejs')%>
+<%- include ('../public/header.ejs')%>
 <div class="user-list-container">
-    <link rel="stylesheet" href="css/userList.css">
+    <link rel="stylesheet" href="/css/userList.css">
     <h1>This is page shows all users</h1>
-    
     <table class="user-table">
         <tr>
             <th>Staff No.</th>
@@ -23,8 +21,8 @@
                     <%=users[i].auth%>
                 </td>
                 <td>
-                    <a href="/useredit?id=<%=users[i]._id%>" class="button">Edit</a>
-                    <a href="/userdelete?id=<%=users[i]._id%>" class="button button-red">Delete</a>
+                    <a href="/admin/users/user-edit?id=<%=users[i]._id%>" class="button">Edit</a>
+                    <a href="/admin/users/user-delete?id=<%=users[i]._id%>" class="button button-red">Delete</a>
                 </td>
                
             </tr>

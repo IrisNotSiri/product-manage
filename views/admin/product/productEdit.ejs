@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="css/stockAdd.css">
+<link rel="stylesheet" href="/css/stockAdd.css">
 
-<%- include ('public/header.ejs')%>
-
+<%- include ('../public/header.ejs')%>
+<%- include ('../public/leftSideNav.ejs')%>
 
 <div class="container">
   <h1>Edit product</h1>
-  <form action="/doneProductEdit" enctype="multipart/form-data" method="POST">
+  <form action="/admin/products/done-product-edit" enctype="multipart/form-data" method="POST">
     <!-- !!!@@!@! Have to add this line to the form: enctype="multipart/form-data"  -->
     <input type="hidden" name="_id" value="<%=product._id%>"/>
     <div class="row">
@@ -55,7 +55,8 @@
       </div>
       <div class="col-75">
         <select id="onSale" name="onSale">
-          <option selected disabled hidden>...Please select</option>
+          <%if (product.onSale){var onSale = "Yes"} else {var onSale = "No"}%>
+          <option selected hidden value="<%=product.onSale%>"><%=onSale%></option>
           <option value="true">Yes</option>
           <option value="false">No</option>
         </select>
@@ -67,10 +68,10 @@
       </div>
       <div class="col-75">
         <select id="category" name="category">
-          <option selected disabled hidden>...Please select</option>
-          <option value="sweetSpicy">Sweet spicy</option>
-          <option value="spicy">Spicy</option>
-          <option value="seafood">Seafood</option>
+          <option selected hidden value="<%=product.category%>"><%=product.category%></option>
+          <option value="Sweet spicy">Sweet spicy</option>
+          <option value="Spicy">Spicy</option>
+          <option value="Seafood">Seafood</option>
         </select>
       </div>
     </div>
@@ -84,7 +85,7 @@
           <input type="file" id="picture" name="picture"><br>
       </div>
       <br/>
-      <img src="<%=product.picture%>" width="150px">
+      <img src="/<%=product.picture%>" width="150px">
       <br/>
     </div>
 
@@ -101,5 +102,3 @@
     </div>
   </form>
 </div>
-
-<%- include ('public/leftSideNav.ejs')%>

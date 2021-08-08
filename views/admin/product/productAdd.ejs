@@ -1,11 +1,9 @@
-<link rel="stylesheet" href="css/stockAdd.css">
-
-<%- include ('public/header.ejs')%>
+<link rel="stylesheet" href="/css/stockAdd.css">
 
 
 <div class="container">
   <h1>Add product item</h1>
-  <form action="/doneStockAdd" enctype="multipart/form-data" method="POST">
+  <form action="/admin/products/done-product-add" enctype="multipart/form-data" method="POST">
     <!-- !!!@@!@! Have to add this line to the form: enctype="multipart/form-data"  -->
     <div class="row">
       <div class="col-25">
@@ -97,5 +95,3 @@
     </div>
   </form>
 </div>
-
-<%- include ('public/leftSideNav.ejs')%>

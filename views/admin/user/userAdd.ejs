@@ -1,8 +1,8 @@
-
+<%- include ('../public/header.ejs')%>
 <div class="container">
-    <link rel="stylesheet" href="css/userAdd.css">
+    <link rel="stylesheet" href="/css/userAdd.css">
     <h1>Create new user</h1>
-    <form action="/doneAddUser" enctype="multipart/form-data" method="POST">
+    <form action="/admin/users/done-add-user" enctype="multipart/form-data" method="POST">
         <!-- !!!@@!@! Have to add this line to the form: enctype="multipart/form-data"  -->
         <div class="row">
           <div class="col-25">
