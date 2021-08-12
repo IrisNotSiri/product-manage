@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/orderHistory.css">
+<%- include ('../public/header.ejs')%>
+<%- include ('../public/orderLeftSideBar.ejs')%>
+
+<section>
+  <!--for demo wrap-->
+  <h1>Order History</h1>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Order No.</th>
+          <th>Customer name</th>
+          <th>Phone number</th>
+          <th>Content</th>
+          <th>Price</th>
+          <th>Order time</th>
+          <th>Complete</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <%for (var i=0; i<orders.length; i++) {%>
+        <tr>
+          <td><%=orders[i].orderNum%></td>
+          <td><%=orders[i].customerName%></td>
+          <td><%=orders[i].phoNum%></td>
+          <td><% if (orders[i]){let orderDetail = JSON.parse(orders[i].orderDetail)%>
+            <% orderDetail.forEach(item => {%>
+                <%=item.name_CN%>*<%=item.count%> 
+        <% })}%></td>
+          <td>$<%=orders[i].totalPrice%></td>
+          <td><%=orders[i].orderTime%></td>
+          <td><%=orders[i].status%></td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  </div>
+</section>

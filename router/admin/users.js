@@ -57,7 +57,7 @@ router.get('/user-edit', function (req, res) {
         if (err) {
             console.log('error when find editing user', err);
         }
-        console.log(data[0]);
+        // console.log(data[0]);
         res.render("admin/user/userEdit.ejs", { user: data[0] });
     });
 })

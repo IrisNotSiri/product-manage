@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/currentOrder.css"></link>
+<%- include ('../public/header.ejs')%>
+<%- include ('../public/orderLeftSideBar.ejs')%>
+<section>
+    <ul>
+        <%for (var i=0; i<orders.length; i++) {%>
+        <li>
+            <div class="order-card">
+                <div class="order-title">
+                    <h4>Order No. <%=orders[i].orderNum%> </h4>
+                    <h4>Order time: <%=orders[i].orderTime%></h4>
+                    <h4>Note: <%=orders[i].note%></h4>
+                </div>
+                <div>
+                    <ul class="content-list">
+                        <% if (orders[i]){let orderDetail = JSON.parse(orders[i].orderDetail)%>
+                            <% orderDetail.forEach(item => {%>
+                            <li >
+                                <%=item.name_CN%>*<%=item.count%>
+                            </li>
+                        <% })}%>
+                    </ul>
+                    <h5 style="float: right;">Customer: <%=orders[i].customerName%></h5>
+                    <h5 style="float: right;">Phone: <%=orders[i].phoNum%></h5>
+                </div>
+                <a href="/admin/orders/order-complete?id=<%=orders[i]._id%>" class="complete-btn">COMPLETE</a>
+                <a href="/admin/orders/order-cancel?id=<%=orders[i]._id%>" class="cancel-btn">CANCEL</a>
+            </div>
+        </li>
+        <%}%>
+    </ul>
+</section>

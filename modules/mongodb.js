@@ -51,3 +51,15 @@ exports.delete = (collectionName, itemObj, callback) => {
         });
     });
 }
+
+exports.sort = (collectionName, findObj, conditionObj, callback) => {
+    __mongoDB((db) => {
+        let dbo = db.db('storedb');
+        //conditionObj = { "sortBythisColomn": 1} => 1: ascending, -1: descending
+        let result = dbo.collection(collectionName).find(findObj).sort(conditionObj);
+        result.toArray(function (findErr, data) {
+            db.close();
+            callback(findErr, data); //process data after get data from db
+        });
+    });
+}

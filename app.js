@@ -1,16 +1,11 @@
 var express = require('express');
 var app = express();
 
-var fs = require('fs');
-var url = require('url');
 app.set('view engine', 'ejs');
 app.use(express.static('staticAssets'));
 app.use('/upload', express.static('upload'));
 
-
-
 var admin = require('./router/admin');
-
 
 
 app.use('/admin', admin);

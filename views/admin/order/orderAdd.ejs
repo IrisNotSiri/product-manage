@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/css/orderAdd.css"></link>
+<form action="/admin/orders/done-order-add" method="POST">
+    <!-- !!!@@!@! Have to add this line to the form: enctype="multipart/form-data"  -->
+    <div class="row">
+      <div class="col-25">
+        <label for="orderNum">Order Number</label>
+      </div>
+      <div class="col-75">
+        <input readonly type="number" id="orderNum" name="orderNum" value="<%=orderNum%>"">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="orderDetail">Order Detail</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="orderDetail" name="orderDetail" placeholder="Order details">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="totalItem">Total items</label>
+      </div>
+      <div class="col-75">
+        <input readonly type="number" id="totalItem" name="totalItem" value=1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="totalPrice">Total Price</label>
+      </div>
+      <div class="col-75">
+        <input readonly type="number" id="totalPrice" name="totalPrice" value=30.87>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="customerName">Customer Name</label>
+      </div>
+      <div class="col-75">
+        <input required type="text" id="customerName" name="customerName" placeholder="customerName">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="phoNum">Phone No.</label>
+      </div>
+      <div class="col-75">
+        <input required type="tel" id="phoNum" name="phoNum" 
+        placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="note">Note</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="note" name="note" placeholder="note">
+      </div>
+    </div>
+    <input type="hidden" id="orderTime" name="orderTime" value="<%=orderTime%>"">
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>

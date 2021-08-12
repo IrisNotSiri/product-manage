@@ -4,8 +4,9 @@ var session = require('express-session');
 
 var index = require('./admin/index.js');
 var login = require('./admin/login');
-var product = require('./admin/product');
-var user = require('./admin/user');
+var product = require('./admin/products');
+var user = require('./admin/users');
+var order = require('./admin/orders');
 
 router.use(session({
     secret: 'yaya app',
@@ -19,7 +20,7 @@ router.use(function (req, res, next) {
         next();
     } else {
         if (req.session.userinfo && req.session.userinfo.username != '') {
-            console.log(req.session.userinfo);
+            // console.log(req.session.userinfo);
             req.app.locals['userinfo'] = req.session.userinfo;
             next();
         } else {
@@ -31,5 +32,6 @@ router.use('/', index);
 router.use('/login', login);
 router.use('/products', product);
 router.use('/users', user);
+router.use('/orders', order);
 
 module.exports = router;
