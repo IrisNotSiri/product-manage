@@ -7,12 +7,11 @@ var session = require('express-session');
 
 var md5 = require('md5');
 var DB = require('../../modules/mongodb');
-
 router.use(session({
     secret: 'yaya app',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 1000*60*60*24 },
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
     rolling: true
 }))
 
@@ -27,10 +26,7 @@ router.post('/done-login', function (req, res) {
     DB.find('user', {
         "username": username,
         "password": password
-    }, (err, data) => {
-        if (err) {
-            console.log("err finding user => ", err);
-        }
+    }, (data) => {
         if (data.length > 0) {
             req.session.userinfo = data[0];
             res.redirect('/admin');
@@ -39,7 +35,6 @@ router.post('/done-login', function (req, res) {
         }
     });
 })
-
 
 router.get('/logout', function (req, res) {
     req.session.destroy(function (err) {

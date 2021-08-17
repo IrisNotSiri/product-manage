@@ -5,14 +5,9 @@ var fs = require('fs');
 var multiparty = require('multiparty');
 
 router.get('/', function (req, res) {
-    DB.find('product', {}, (err, data) => {
-        if (err) {
-            console.log('err when finding product');
-            return;
-        }
+    DB.find('product', {}, data => {
         res.render("admin/product/productsList.ejs", { product: data });
     });
-    // res.send('product page');
 })
 
 router.get('/product-add', function (req, res) {
@@ -45,11 +40,7 @@ router.post('/done-product-add', function (req, res) {
             category: category,
             ingredient: ingredient,
             picture: picture
-        }, (err, data) => {
-            if (err) {
-                console.log('err when insert product');
-                return;
-            }
+        }, data => {
             res.redirect('/admin/products');
         });
     });
@@ -58,11 +49,7 @@ router.post('/done-product-add', function (req, res) {
 router.get('/product-edit', function (req, res) {
     let id = req.query.id;
     //in order to get mongodb built-in id, need ObjectID ({"_id":new DB.ObjecyID(id)}) 
-    DB.find('product', { "_id": new DB.ObjectID(id) }, function (err, data) {
-        if (err) {
-            console.log('error when find editing product', err);
-        }
-        console.log("$$$", data);
+    DB.find('product', { "_id": new DB.ObjectID(id) }, data => {
         res.render("admin/product/productEdit.ejs", { product: data[0] });
     });
 })
@@ -113,11 +100,7 @@ router.post('/done-product-edit', function (req, res) {
             //there will be a temporory file generated. Delete it
             fs.unlink(picture, () => { });
         }
-        DB.update('product', { "_id": new DB.ObjectID(_id) }, valueObj, (err, data) => {
-            if (err) {
-                console.log("update product err", err)
-                return;
-            }
+        DB.update('product', { "_id": new DB.ObjectID(_id) }, valueObj, (data) => {
             res.redirect('/admin/products');
         });
     });
@@ -125,11 +108,8 @@ router.post('/done-product-edit', function (req, res) {
 
 router.get('/product-delete', function (req, res) {
     let id = req.query.id;
-
-    DB.delete('product', { "_id": new DB.ObjectID(id) }, (err, data) => {
-        if (!err) {
-            res.send("<script>alert('Product deleted.'); location.href='/admin/products';</script>");
-        }
+    DB.delete('product', { "_id": new DB.ObjectID(id) }, (data) => {
+        res.send("<script>alert('Product deleted.'); location.href='/admin/products';</script>");
     });
     // res.send("product is deleted");
 })
